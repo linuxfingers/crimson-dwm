@@ -8,7 +8,7 @@ Desktop tags are unicode planetary symbols, but you can change these in line 33 
 
 Settings currenly allow only st to have transparency - edit line 38 (opacity-rule) in compton.conf to add/remove/change transparency for specific programs. You can add multiple programs (seperated by a comma) by following the convention of "XX:name~='YY.*'" where XX is the opacity (00-99) and YY is the program name. You may have to play around with capitalization depending on how your package is set up (Firefox needs to be capitalized, for instance.)
 
-Note: even with transparency in st, if you run a program in st it may not have transparency; e.g if I run vim, it doesn't follow the rules. However, lynx and manpages retain transparency. Play around and find what works for your own personal setup. :) 
+Note: even with transparency set for *st*, if you run a program in *st* it **may or may not** have transparency. For example, if I run *vim*, it doesn't follow the rules. However, *lynx* and *manpages* retain transparency. Play around and find what works for your own personal setup. :) 
 
 ## software required for this config:
 - dwm (window manager)

@@ -1,32 +1,27 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 8;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=10" };
-static const char dmenufont[]       = "Hack:size=10";
-static const char white[]	    = "#ffffff";
-static const char red[] 	    = "#aa0000";
-static const char darkgrey[]	    = "#111111";
-static const char black[]	    = "#000000";
-static const char col_gray2[]       = "#444444";
-static const char col_gray4[]       = "#eeeeee";
+static const unsigned int borderpx  	= 8;       		 /* border pixel of windows */
+static const unsigned int snap      	= 32;       		/* snap pixel */
 
-static const unsigned int gappx     = 0;        /* gap pixel between windows */
+static const int showbar            	= 1;        		/* 0 means no bar */
+static const int topbar             	= 1;        		/* 0 means bottom bar */
 
-//static const char cyan[]	    = "#00ccff";
-//static const char col_gray1[]       = "#222222";
-//static const char col_gray3[]       = "#bbbbbb";
-//static const char col_cyan[]        = "#005577";
+static const char *fonts[]      	= { "Hack:size=10" };
+static const char dmenufont[]       	= "Hack:size=10";
+static const char white[]	    	= "#ffffff";
+static const char red[] 	    	= "#aa0000";
+static const char black[]	    	= "#000000";
+static const char ltgrey[]       	= "#eeeeee";
+static const char mdgrey[]       	= "#444444";
+static const char dkgrey[]	    	= "#111111";
+
+static const unsigned int gappx     = 1;        /* gap pixel between windows */
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-
-//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeNorm] = { white,	    darkgrey,     col_gray2 },
-//	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeSel]  = { col_gray4, red,       red	 },
+	/*               fg         	bg         	border   */
+	[SchemeNorm] = { white,	    	dkgrey,		mdgrey	},
+	[SchemeSel]  = { ltgrey,	red,		red	},
 };
 
 /* tagging */
@@ -47,11 +42,8 @@ static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] *
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
-//#include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     	arrange function */
-	
-//	{ "\u26b7",	gaplessgrid},
 	{ "\u2685",      	tile },    /* first entry is default */
 	{ "\u2680",      	NULL },    /* no layout function means floating behavior */
 	{ "\u2699",      	monocle },
@@ -70,13 +62,11 @@ static const Layout layouts[] = {
 
 /* commands */#
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", darkgrey, "-nf", white, "-sb", red, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dkgrey, "-nf", white, "-sb", red, "-sf", ltgrey, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-//	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[0] } }, 
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
